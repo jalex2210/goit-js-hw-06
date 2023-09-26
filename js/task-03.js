@@ -13,10 +13,25 @@ const images = [
   },
 ];
 
-const galleryList = document.querySelector('.gallery');
-const imagesList = images.map(image =>`
-  <li>
-    <img src="${image.url}" alt="${image.alt}">
-  </li>
-`).join('');
-galleryList.insertAdjacentHTML('beforeend', imagesList);
+images.forEach(function (gallery) {
+  const initLi = document.createElement("li");
+  const urlImage = document.createElement("img");
+
+  initLi.style.display = "flex";
+  initLi.style.flexDirection = "column";
+  initLi.style.justifyContent = "center";
+  initLi.style.alignItems = "center";
+  initLi.style.fontWeight = "800";
+
+  initLi.append(urlImage);
+  urlImage.src = gallery.url;
+  urlImage.alt = gallery.alt;
+  urlImage.style.cssText = "width: 90%; height: auto;";
+  urlImage.style.borderRadius = "25px";
+  urlImage.insertAdjacentHTML("afterend", gallery.alt);
+
+  const imagesPrint = document.querySelector(".gallery");
+
+  imagesPrint.append(initLi);
+  imagesPrint.style.display = "flex";
+});

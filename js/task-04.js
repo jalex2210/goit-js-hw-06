@@ -4,7 +4,7 @@ const valueElements = document.getElementById('value');
 let adderValue = 0;
 
 function updateCounter(value) {
-    counterValue = value;
+    adderValue = value;
     valueElements.textContent = adderValue;
 }
 
